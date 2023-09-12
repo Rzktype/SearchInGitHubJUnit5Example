@@ -42,7 +42,7 @@ public class SelenideRepositorySearchTests {
                 "    $(\"#second\").should(visible).click();\n" +
                 "  }\n" +
                 "}"));
-
+        // Второй пример
         $(".repository-content ").shouldHave(text("Or register extension inside test class:"));
         $(".markdown-body").shouldHave(text("class Tests {\n" +
                 "  @RegisterExtension \n" +
@@ -57,7 +57,6 @@ public class SelenideRepositorySearchTests {
                 "    $(\"#second\").should(visible).click();\n" +
                 "  }\n" +
                 "}"));
-
 
 
     }
