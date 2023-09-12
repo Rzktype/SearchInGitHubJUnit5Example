@@ -28,9 +28,21 @@ public class SelenideRepositorySearchTests {
         $("#wiki-tab").click();
         // раскрыть Pages и перейти в SoftAssertions
         $("#wiki-pages-box").$(withText("Show")).click();
-        $(byText("SoftAssertions")).click();
+        $(byText("SoftAssertions")).shouldHave(text("SoftAssertions")).click();
         // найти пример кода для JUnit5
         $(".repository-content ").shouldHave(text("Using JUnit5 extend test class:"));
+        $(".markdown-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
+                "class Tests {\n" +
+                "  @Test\n" +
+                "  void test() {\n" +
+                "    Configuration.assertionMode = SOFT;\n" +
+                "    open(\"page.html\");\n" +
+                "\n" +
+                "    $(\"#first\").should(visible).click();\n" +
+                "    $(\"#second\").should(visible).click();\n" +
+                "  }\n" +
+                "}"));
+
     }
 
 }
